@@ -1,0 +1,11 @@
+1648795665349	geckodriver	INFO	Listening on 127.0.0.1:27299
+1648795668421	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\ASUS\\AppData\\Local\\Temp\\rust_mozprofilervEAfu"
+1648795669788	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ASUS\\AppData\\Local\\Temp\\rust_mozprofilervEAfu\\search.json.mozlz4", (void 0)))
+1648795672214	Marionette	INFO	Listening on port 27309
+1648795672255	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1648795679078	Marionette	INFO	Stopped listening on port 27309
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
