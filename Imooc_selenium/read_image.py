@@ -16,5 +16,6 @@ with open('./renren.png', 'rb') as fp:
 r = ShowapiRequest("http://route.showapi.com/2360-2","904965","ef5258484b1b49e68ce675b72b97a923" )
 r.addBodyPara("file_base64", image_base64)
 res = r.post()
-print(res.text) # 返回信息
-res.json()['showapi_res_body']['']
+#print(res.text) # 返回信息
+text = res.json()['showapi_res_body']['pic_str']
+print(text)
