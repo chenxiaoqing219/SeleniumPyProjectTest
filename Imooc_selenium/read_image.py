@@ -3,9 +3,7 @@
 # @File : read_image.py
 # @Software : PyCharm
 import base64
-import pytesseract
-from PIL import Image
-from ShowapiRequest import ShowapiRequest
+from util.ShowapiRequest import ShowapiRequest
 '''
 image = Image.open('./renren.png')
 text = pytesseract.image_to_string(image)

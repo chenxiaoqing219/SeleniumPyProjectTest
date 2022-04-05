@@ -8,9 +8,9 @@ import base64
 import time
 from PIL import Image
 import random
-from ShowapiRequest import ShowapiRequest
+from util.ShowapiRequest import ShowapiRequest
 from selenium import webdriver
-from find_element import FindElement
+from base.find_element import FindElement
 
 class RegisterFunction(object):
     def __init__(self, url, i):
@@ -71,11 +71,11 @@ class RegisterFunction(object):
         user_name_info = self.get_range_user()
         user_email = user_name_info + "@163.com"
         file_name = "./test02.png"
-        #code_text = self.code_online(file_name)
+        code_text = self.code_online(file_name)
         self.send_user_info('user_email', user_email)
         self.send_user_info('user_name', user_name_info)
         self.send_user_info('user_password', '1111111')
-        self.send_user_info('code_text', '11111')
+        self.send_user_info('code_text', code_text)
         self.get_user_element('register_button').click()
         code_error = self.get_user_element('code_text_error')
         if code_error == None:

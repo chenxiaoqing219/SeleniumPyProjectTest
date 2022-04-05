@@ -7,7 +7,7 @@ import time
 from PIL import Image
 from selenium.webdriver.common.by import By
 import random
-from ShowapiRequest import ShowapiRequest
+from util.ShowapiRequest import ShowapiRequest
 from selenium import webdriver
 driver = webdriver.Chrome()
 
@@ -29,7 +29,7 @@ def get_range_user():
 # 获取图片
 def get_code_image(filename):
     driver.save_screenshot(filename)
-    code_element = driver.find_element_by_id("getcode_num")
+    code_element = driver.find_element(By.ID, "getcode_num")
     left = code_element.location['x']
     top = code_element.location['y']
     right = code_element.size['width'] + left
