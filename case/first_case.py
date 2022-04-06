@@ -37,6 +37,8 @@ class FirstCase(unittest.TestCase):
     def tearDownClass(cls):
         pass
 
+    # 邮箱、用户名、密码、验证码、错误信息定位元素、错误提示信息
+
     def test_register_email_error(self):
         user_email_error = self.register_b.register_email_error('11', 'xiaoxiao01', '111111', self.file_name)
         return self.assertFalse(user_email_error, '测试失败')
