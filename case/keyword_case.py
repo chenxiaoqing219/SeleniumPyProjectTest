@@ -13,8 +13,8 @@ class KeywordCase:
         case_lines = handle_excel.get_lines()
         if case_lines:
             for i in range(1, case_lines):
-                handle_excel.write_value(i, 'test')
-                continue
+                #handle_excel.write_value(i, 'test')
+                #continue
                 is_run = handle_excel.get_col_value(i, 3)
                 if is_run == 'yes':
                     except_result_method = handle_excel.get_col_value(i, 7)

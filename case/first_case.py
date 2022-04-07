@@ -12,16 +12,21 @@ from business.register_business import RegisterBusiness
 from selenium import webdriver
 import unittest
 import HTMLTestRunner
+from log.user_log import UserLog
+
 class FirstCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.file_name = '..\Images\code.png'
-
+        cls.log = UserLog()
+        cls.logger = cls.log.get_log()
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.get("http://www.5itest.cn/register")
         self.driver.maximize_window()
         self.register_b = RegisterBusiness(self.driver)
+        self.logger.info("this is chrome")
+
         #self.file_name = '..\Images\code.png'
     def tearDown(self):
         time.sleep(2)
@@ -33,9 +38,10 @@ class FirstCase(unittest.TestCase):
                 self.driver.save_screenshot(file_path)
         #self.driver.save_screenshot()
         self.driver.close()
+
     @classmethod
     def tearDownClass(cls):
-        pass
+        cls.log.close_handle()
 
     # 邮箱、用户名、密码、验证码、错误信息定位元素、错误提示信息
 
@@ -69,10 +75,10 @@ if __name__ == '__main__':
     fp = open(file_path, 'wb')
     suite = unittest.TestSuite()
     suite.addTest(FirstCase('test_register_email_error'))
-    #suite.addTest(FirstCase('test_register_username_error'))
-    #suite.addTest(FirstCase('test_register_password_error'))
-    #suite.addTest(FirstCase('test_register_code_error'))
-    #suite.addTest(FirstCase('test_register_success'))
+    suite.addTest(FirstCase('test_register_username_error'))
+    suite.addTest(FirstCase('test_register_password_error'))
+    suite.addTest(FirstCase('test_register_code_error'))
+    suite.addTest(FirstCase('test_register_success'))
     #unittest.TextTestRunner().run(suite)
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title="This is first report", description="这是我们第一次测试报告", verbosity=2)
     runner.run(suite)

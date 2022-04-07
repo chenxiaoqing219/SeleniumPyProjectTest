@@ -130,9 +130,9 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">This is first report</h1>
 <p class='attribute'><strong>测试人员 : </strong> QA</p>
-<p class='attribute'><strong>开始时间 : </strong> 2022-04-06 09:05:53</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:15.845370</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2022-04-07 18:07:05</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:01:07.235321</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 5，通过 3，错误 2，通过率 60.00%</p>
 
 <p class='description'>这是我们第一次测试报告</p>
 </div>
@@ -140,10 +140,10 @@ function html_escape(s) {
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要[ 100.00% ]</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要[ 60.00% ]</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败[ 0 ]</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过[ 1 ]</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有[ 1 ]</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过[ 3 ]</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有[ 5 ]</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -163,13 +163,13 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='errorClass warning'>
     <td>FirstCase</td>
-    <td class="text-center">1</td>
-    <td class="text-center">1</td>
+    <td class="text-center">5</td>
+    <td class="text-center">3</td>
     <td class="text-center">0</td>
-    <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">2</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',5)" class="detail" id='c1'>详细</a></td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
@@ -177,13 +177,98 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
+<tr id='ft1_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_register_username_error</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou -->
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse">  
+
+    <!-- 默认展开错误信息 -Findyou 
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse in"> -->
+    <pre>
+    
+ft1_2: Traceback (most recent call last):
+  File "D:/PycharmProjects/SeleniumPyProjectTest/case/first_case.py", line 52, in test_register_username_error
+    user_name_error = self.register_b.register_name_error('111@qq.com', 'aa', '111111', self.file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\business\register_business.py", line 41, in register_name_error
+    self.user_base(email, name, password, file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\business\register_business.py", line 15, in user_base
+    self.register_h.send_user_code(file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\handle\register_handle.py", line 24, in send_user_code
+    code = get_code_text.code_online(file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\util\get_code.py", line 40, in code_online
+    text = res.json()['showapi_res_body']['pic_str']
+KeyError: 'pic_str'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_register_password_error</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='ft1_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_register_code_error</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou -->
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse">  
+
+    <!-- 默认展开错误信息 -Findyou 
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse in"> -->
+    <pre>
+    
+ft1_4: D:\Python\Python38\lib\site-packages\selenium\webdriver\remote\webdriver.py:1030: UserWarning: name used for saved screenshot does not match file type. It should end with a `.png` extension
+  warnings.warn("name used for saved screenshot does not match file "
+Traceback (most recent call last):
+  File "D:\Python\Python38\lib\site-packages\PIL\Image.py", line 2152, in save
+    format = EXTENSION[ext]
+KeyError: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:/PycharmProjects/SeleniumPyProjectTest/case/first_case.py", line 58, in test_register_code_error
+    code_text_error = self.register_b.register_code_error('112211@qq.com', 'xiaoxiao01', '111111', '1111')
+  File "D:\PycharmProjects\SeleniumPyProjectTest\business\register_business.py", line 57, in register_code_error
+    self.user_base(email, name, password, file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\business\register_business.py", line 15, in user_base
+    self.register_h.send_user_code(file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\handle\register_handle.py", line 24, in send_user_code
+    code = get_code_text.code_online(file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\util\get_code.py", line 33, in code_online
+    self.get_code_image(file_name)
+  File "D:\PycharmProjects\SeleniumPyProjectTest\util\get_code.py", line 28, in get_code_image
+    img.save(file_name)
+  File "D:\Python\Python38\lib\site-packages\PIL\Image.py", line 2154, in save
+    raise ValueError(f"unknown file extension: {ext}") from e
+ValueError: unknown file extension: 
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_register_success</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
-    <td>1</td>
+    <td>5</td>
+    <td>3</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>2</td>
+    <td>通过率：60.00%</td>
 </tr>
 </table>
 
